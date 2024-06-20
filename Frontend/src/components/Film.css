@@ -1,0 +1,449 @@
+.detailFilm-container {
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 20px;
+    padding-bottom: 40px;
+    border-radius: 30px;
+    font-family: Arial, sans-serif;
+}
+
+.detail-card {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background-color: #f2f2f2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.top-card-film {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.top-card-film h2 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+.content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.film-img {
+    width: 200px;
+    height: 300px;
+    border-radius: 15px;
+    margin-inline: 20px;
+}
+
+.film-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.profile-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.profile-value {
+    margin-bottom: 10px;
+}
+
+.profile-bio {
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.garis {
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.comment-container {
+    margin-top: 30px;
+}
+
+.new-comment {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.user-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.comment-button {
+    padding: 10px 20px;
+    background-color: #0D99FF;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.comment-type {
+    display: flex;
+    /* margin-bottom: 10px; */
+}
+
+.comment-type button {
+    padding: 10px 20px;
+    /* margin-right: 10px; */
+    border: none;
+    border-radius: 8px 8px 0px 0px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #F2F2F2;
+}
+
+.comment-type button.active {
+    background-color: #0D99FF;
+    color: #fff;
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    background-color: #F2F2F2;
+    border-radius: 0px 20px 20px 20px;
+    padding: 30px;
+}
+
+.comments h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.comment {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: white;
+  position: relative;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comment-header .user-img {
+  margin-right: 10px;
+}
+
+.comment-info {
+  flex-grow: 1;
+}
+
+.comment-actions {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.comment:hover .comment-actions {
+  display: block;
+}
+
+.comment-user {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.comment-date {
+    font-weight: normal;
+    color: #777;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.comment-text {
+    margin: 0;
+    font-size: 14px;
+}
+
+.edit-button, .delete-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.edit-button:hover, .delete-button:hover {
+    text-decoration: underline;
+}
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    background-color: #F2F2F2;
+    border-radius: 0px 20px 20px 20px;
+    padding: 30px;
+}
+
+.reviews h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.review-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: white;
+    position: relative;
+}
+
+.review-actions {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.review-item:hover .review-actions {
+    display: block;
+}
+
+.review-details {
+    margin-left: 10px;
+    flex: 1;
+}
+
+.review-author {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.review-text {
+    margin: 0;
+    font-size: 14px;
+}
+
+.comment, .review {
+  position: relative;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.comment:hover .comment-actions, .review:hover .review-actions {
+  display: block;
+}
+
+.comment-actions, .review-actions {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.edit-button, .delete-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.edit-button:hover, .delete-button:hover {
+  text-decoration: underline;
+}
+
+.rating-container {
+    margin-top: 20px;
+}
+
+.rating-stars {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.star {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.star.selected {
+    color: #f39c12;
+}
+
+.rating-button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.average-rating {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.review-container {
+    margin-top: 30px;
+}
+
+.new-review {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.user-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.review-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.review-button {
+    padding: 10px 20px;
+    background-color: #0D99FF;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    background-color: #F2F2F2;
+    border-radius: 0px 20px 20px 20px;
+    padding: 30px;
+}
+
+.review {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: white;
+    position: relative;
+}
+
+.review-actions {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.review:hover .review-actions {
+    display: block;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.review-header .user-img {
+  margin-right: 10px;
+}
+
+.review-info {
+  flex-grow: 1;
+}
+
+.review-actions {
+  margin-left: auto;
+}
+
+.edit-button, .delete-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.edit-button:hover, .delete-button:hover {
+    text-decoration: underline;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comment-header .user-img {
+  margin-right: 10px;
+}
+
+.comment-info {
+  flex-grow: 1;
+}
+
+.comment-actions {
+  margin-left: auto;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    background-color: #F2F2F2;
+    border-radius: 0px 20px 20px 20px;
+    padding: 30px;
+}

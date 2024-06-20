@@ -1,0 +1,79 @@
+.profile-container {
+    width: 1000px;
+    display: flex;
+    flex-direction: column; 
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 20px;
+    padding-bottom: 40px;
+    border-radius: 30px;
+}
+
+.top-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.btn-edit-profile {
+    width: 160px;
+    background-color: #0D99FF;
+    color: #fff;
+    padding: 8px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.top-card h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+.profile-card {
+    display: flex;
+    align-items: flex-start;
+    padding: 40px;
+    background-color: #f2f2f2;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.profile-img {
+    width: 200px;
+    height: 300px;
+    border-radius: 15px;
+    margin-inline: 20px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.profile-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.profile-value {
+    margin-bottom: 10px;
+}
+
+.profile-bio {
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.profile-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}

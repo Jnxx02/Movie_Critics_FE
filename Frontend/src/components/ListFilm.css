@@ -23,7 +23,8 @@ body {
   padding-bottom: 40px;
 }
 
-.film-title {
+.film-title-list {
+  width: 400px;
   font-size: 18px;
   font-weight: bold;
   margin: 0 0 5px 0;
@@ -88,7 +89,7 @@ body {
   margin-inline: 20px; 
 }
 
-.film-info {
+.film-info-list {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -164,17 +165,43 @@ body {
   padding: 20px;
   border: 1px solid #888;
   width: 100%; 
-  max-width: 400px;
+  max-width: 600px;
   border-radius: 25px;
   text-align: center;
   background-color: #F6FBF9;
 }
 
-.close {
+.close { 
+  color: #aaa; 
+  font-size: 28px; 
+  font-weight: bold; 
+  text-align: left; 
+}
+
+.modal-content-delete .close {
   color: #aaa;
   font-size: 28px;
   font-weight: bold;
   text-align: left;
+}
+
+.modal-content-delete {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 100%; 
+  max-width: 400px;
+  border-radius: 25px;
+  background-color: #F6FBF9;
+}
+
+.modal-content-delete h3{
+  text-align: center;
+}
+
+.modal-content-delete .buttons {
+  text-align: center;
 }
 
 .close:hover,
@@ -187,6 +214,7 @@ body {
 .insert-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .form-group {
@@ -250,4 +278,39 @@ body {
 .btn-back:hover {
   background-color: #e60404; 
   color: white;
+}
+
+.top-form {
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+}
+
+.form-control-sinopsis {
+  width: 365px;
+  height: 150px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: 15px;
+  text-align: justify;
+}
+
+.bottom-form {
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+}
+
+.bottom-form .form-control {
+  width: 245px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.bottom-form .bottom-left-form{
+  margin-right: 10px;
 }

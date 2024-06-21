@@ -21,8 +21,9 @@
 .sign-menu {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: left;
   flex-grow: 1;
+  margin-left: 10px;
 }
 
 .btn-signin {
@@ -31,6 +32,8 @@
   border-color: #ffffff;
   font-weight: bold;
   margin-right: 10px;
+  margin-bottom: 3px;
+  margin-top: 3px;
 }
 
 .btn-signup {
@@ -38,4 +41,5 @@
   background-color: #dc3545;
   border-color: #dc3545;
   font-weight: bold;
+  margin-top: 3px;
 }

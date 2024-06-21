@@ -96,8 +96,8 @@ const ListFilm = () => {
               <Link to={`/film/${film.id}`}>
                 <img src={film.cover} alt={`Film ${index + 1}`} className="film-poster" />
               </Link>
-              <div className="film-info">
-                <p className="film-title">
+              <div className="film-info-list">
+                <p className="film-title-list">
                   {film.title.length > 50 ? `${film.title.substring(0, 30)}...` : film.title}
                 </p>
                 <p className="film-genres">{film.genre}</p>
@@ -179,57 +179,42 @@ const Modal = ({ onClose }) => {
         <span className="close" onClick={onClose}>&times;</span>
         <h2>New Film</h2>
         <form className="insert-form" onSubmit={handleSubmit}>
-          <div className="form-group">
+        <div className='top-form'>
+          <div className='top-left-form'>
             <img
-              src={imageUrl || 'https://via.placeholder.com/80'}
-              alt="Film Poster"
-              className="film-image"
-            />
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Image URL"
-              value={imageUrl}
-              onChange={(e) => setImageUrl(e.target.value)}
-            />
+                src={imageUrl || 'https://via.placeholder.com/80'}
+                alt="Film Poster"
+                className="film-image"
+              />
           </div>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Judul"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
+          <div className='top-right-form'>
+            <textarea
+                className="form-control-sinopsis"
+                placeholder="Sinopsis"
+                value={synopsis}
+                onChange={(e) => setSynopsis(e.target.value)}
+              ></textarea>
           </div>
-          <div className="form-group">
+        </div>
+        <div className='bottom-form'>
+          <div className='bottom-left-form'>
             <input
+                type="text"
+                className="form-control"
+                placeholder="Judul"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+
+              <input
               type="text"
               className="form-control"
               placeholder="Genre"
               value={genre}
               onChange={(e) => setGenre(e.target.value)}
             />
-          </div>
-          <div className="form-group">
-            <textarea
-              className="form-control"
-              placeholder="Sinopsis"
-              value={synopsis}
-              onChange={(e) => setSynopsis(e.target.value)}
-            ></textarea>
-          </div>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Durasi Film"
-              value={duration}
-              onChange={(e) => setDuration(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <input
+
+            <input        
               type="text"
               className="form-control"
               placeholder="Tahun Rilis"
@@ -237,7 +222,15 @@ const Modal = ({ onClose }) => {
               onChange={(e) => setReleaseYear(e.target.value)}
             />
           </div>
-          <div className="form-group">
+          <div className='bottom-right-form'>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Durasi Film (menit)"
+              value={duration}
+              onChange={(e) => setDuration(e.target.value)}
+            />
+
             <input
               type="text"
               className="form-control"
@@ -245,7 +238,18 @@ const Modal = ({ onClose }) => {
               value={trailerUrl}
               onChange={(e) => setTrailerUrl(e.target.value)}
             />
+
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Image URL"
+              value={imageUrl}
+              onChange={(e) => setImageUrl(e.target.value)}
+            />      
+
           </div>
+        </div>
+          
           <div className="buttons">
             <button type="button" className="btn btn-back" onClick={onClose}>Back</button>
             <button type="submit" className="btn btn-submit">Submit</button>
@@ -300,73 +304,77 @@ const EditModal = ({ onClose, film }) => {
         <span className="close" onClick={onClose}>&times;</span>
         <h2>Edit Film</h2>
         <form className="insert-form" onSubmit={handleSubmit}>
-          <div className="form-group">
+        <div className='top-form'>
+          <div className='top-left-form'>
             <img
-              src={imageUrl || 'https://via.placeholder.com/80'}
-              alt="Film Poster"
-              className="film-image"
+                src={imageUrl || 'https://via.placeholder.com/80'}
+                alt="Film Poster"
+                className="film-image"
+              />
+          </div>
+          <div className='top-right-form'>
+            <textarea
+                className="form-control-sinopsis"
+                placeholder="Sinopsis"
+                value={synopsis}
+                onChange={(e) => setSynopsis(e.target.value)}
+              ></textarea>
+          </div>
+        </div>
+        <div className='bottom-form'>
+          <div className='bottom-left-form'>
+            <input
+                type="text"
+                className="form-control"
+                placeholder="Judul"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+
+              <input
+              type="text"
+              className="form-control"
+              placeholder="Genre"
+              value={genre}
+              onChange={(e) => setGenre(e.target.value)}
             />
+
+            <input        
+              type="text"
+              className="form-control"
+              placeholder="Tahun Rilis"
+              value={releaseYear}
+              onChange={(e) => setReleaseYear(e.target.value)}
+            />
+          </div>
+          <div className='bottom-right-form'>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Durasi Film (menit)"
+              value={duration}
+              onChange={(e) => setDuration(e.target.value)}
+            />
+
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Trailer URL"
+              value={trailerUrl}
+              onChange={(e) => setTrailerUrl(e.target.value)}
+            />
+
             <input
               type="text"
               className="form-control"
               placeholder="Image URL"
               value={imageUrl}
               onChange={(e) => setImageUrl(e.target.value)}
-            />
+            />      
+
           </div>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              value={title}
-              placeholder="Judul"
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              value={genre}
-              placeholder="Genre"
-              onChange={(e) => setGenre(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <textarea
-              className="form-control"
-              value={synopsis}
-              placeholder="Sinopsis"
-              onChange={(e) => setSynopsis(e.target.value)}
-            ></textarea>
-          </div>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              value={duration}
-              placeholder="Durasi Film"
-              onChange={(e) => setDuration(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              value={releaseYear}
-              placeholder="Tahun Rilis"
-              onChange={(e) => setReleaseYear(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              value={trailerUrl}
-              placeholder="Trailer URL"
-              onChange={(e) => setTrailerUrl(e.target.value)}
-            />
-          </div>
+        </div>
+          
           <div className="buttons">
             <button type="button" className="btn btn-back" onClick={onClose}>Back</button>
             <button type="submit" className="btn btn-submit">Submit</button>
@@ -380,9 +388,9 @@ const EditModal = ({ onClose, film }) => {
 const DeleteConfirm = ({ onClose, onConfirm }) => {
   return (
     <div className="modal">
-      <div className="modal-content">
+      <div className="modal-content-delete">
         <span className="close" onClick={onClose}>&times;</span>
-        <h2>Are you sure you want to delete this film?</h2>
+        <h3>Are you sure you want to delete this film?</h3>
         <div className="buttons">
           <button type="button" className="btn btn-back" onClick={onClose}>Cancel</button>
           <button type="button" className="btn btn-submit" onClick={onConfirm}>Confirm</button>

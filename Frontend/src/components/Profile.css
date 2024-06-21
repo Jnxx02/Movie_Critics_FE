@@ -1,7 +1,5 @@
 .profile-container {
     width: 1000px;
-    display: flex;
-    flex-direction: column; 
     margin: 0 auto;
     margin-top: 30px;
     padding: 20px;
@@ -13,7 +11,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
     border-radius: 8px;
     margin-bottom: 15px;
 }
@@ -39,7 +36,7 @@
 .profile-card {
     display: flex;
     align-items: flex-start;
-    padding: 40px;
+    padding: 20px;
     background-color: #f2f2f2;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     border-radius: 8px;
@@ -49,31 +46,59 @@
     width: 200px;
     height: 300px;
     border-radius: 15px;
-    margin-inline: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .profile-info {
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.profile-label {
+.profile-info-detail{
+    margin-bottom: 20px;
+}
+
+.profile-info-detail p {
+    margin: 0px;
+}
+
+.profile-info-edit {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-info-edit p {
     font-weight: bold;
-    margin-bottom: 5px;
+    margin: 0px;
+}
+
+.profile-info-edit input {
+    margin-bottom: 8px;
 }
 
 .profile-value {
     margin-bottom: 10px;
 }
 
-.profile-bio {
-    margin-bottom: 20px;
-    line-height: 1.4;
+.btn:hover {
+    background-color: #0c8be6;
+    color: white;
 }
 
-.profile-actions {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-}
+.btn-save {
+    width: 200px;
+    background-color: #7fdc77;
+    color: #fff;
+    padding: 8px 30px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+  }

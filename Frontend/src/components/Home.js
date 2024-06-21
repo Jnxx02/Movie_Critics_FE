@@ -81,15 +81,13 @@ const Home = () => {
           </div>
           <div className="film-item-container">
             {movies.slice(0, 4).map((film, index) => (
-              <div key={index} className="film-item">
-                <Link to={`/film/${film.id}`}>
-                  <img
-                    src={film.cover}
-                    alt={`Film ${index + 1}`}
-                    className="film-thumbnail"
-                    onError={() => console.log('Image error:', film.cover)}
-                  />
-                </Link>
+              <Link to={`/film/${film.id}`} className="film-item" key={index}>
+                <img
+                  src={film.cover}
+                  alt={`Film ${index + 1}`}
+                  className="film-thumbnail"
+                  onError={() => console.log('Image error:', film.cover)}
+                />
                 <div className="film-info">
                   <p className="film-title">
                     {film.title.length > 40 ? `${film.title.substring(0, 30)}...` : film.title}
@@ -98,27 +96,27 @@ const Home = () => {
                     {film.genre.length > 40 ? `${film.genre.substring(0, 30)}...` : film.genre}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
 
-        <div className="kritikus-list">
+        <div className="home-kritikus-list">
           <div className="top-card">
             <h1>Daftar Kritikus</h1>
             <Link className="see-more" to="/listkritikus">See More &gt;</Link>
           </div>
           <div className="kritikus-item-container">
             {critics.slice(0, 5).map((critic, index) => (
-              <div key={index} className="kritikus-item">
+              <div key={index} className="home-kritikus-item">
                 <img
                   src={critic.img ? critic.img : defaultCriticImage}
                   alt={`Critic ${index + 1}`}
-                  className="kritikus-thumbnail"
+                  className="home-kritikus-thumbnail"
                   onError={() => console.log('Image error:', critic.img)}
                 />
-                <div className="kritikus-info">
-                  <p className="kritikus-name">
+                <div className="home-kritikus-info">
+                  <p className="home-kritikus-name">
                     {critic.name.length > 40 ? `${critic.name.substring(0, 30)}...` : critic.name}</p>
                 </div>
               </div>

@@ -1,3 +1,5 @@
+// ListKritikus.js
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './ListKritikus.css';
@@ -40,20 +42,18 @@ const ListKritikus = () => {
 
         <ul className="kritikus-card-container">
           {critics.map((critic, index) => (
-            <li key={index} className="kritikus-item">
-              <span className="kritikus-index">{index + 1}.</span>
+            <li key={index} className="kritikus-card">
+              <span className="kritikus-index">{index + 1}</span>
               <img
                 src={critic.img ? critic.img : defaultCriticImage}
                 alt={`Critic ${index + 1}`}
-                className="kritikus-thumbnail"
-                onError={() => console.log('Image error:', critic.img)}
+                className="kritikus-poster"
+                onError={(e) => { e.target.onerror = null; e.target.src = defaultCriticImage }}
               />
               <div className="kritikus-info">
-                <p className="kritikus-name">
-                  {critic.name.length > 40 ? `${critic.name.substring(0, 30)}...` : critic.name}
-                </p>
-                <p className="film-genres">{critic.email}</p>
-                <p className="film-genres">{critic.bio}</p>
+                <p className="kritikus-name">{critic.name}</p>
+                <p className="kritikus-email">{critic.email}</p>
+                <p className="kritikus-bio">{critic.bio}</p>
               </div>
             </li>
           ))}

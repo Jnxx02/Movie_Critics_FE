@@ -85,37 +85,51 @@ const Profile = () => {
     return (
         <div className="profile-container">
             <div className="top-card">
-                <h1>Profile Pengguna</h1>
+                <h1>Profile</h1>
                 <button type="button" className="btn btn-edit-profile" onClick={handleEditToggle}>
                     {isEditing ? 'Cancel' : 'Edit Profile'}
                 </button>
             </div>
 
             <div className="profile-card">
+                <img
+                    src="https://img.freepik.com/free-vector/illustration-businessman_53876-5856.jpg?size=626&amp;ext=jpg&amp;ga=GA1.1.2043474510.1718615911&amp;semt=ais_user"
+                    alt="Profile"
+                    className="profile-img"
+                />
                 {isEditing ? (
-                    <form onSubmit={handleSubmit}>
-                        <label>Nama:</label>
+                    <form className="profile-info-edit" onSubmit={handleSubmit}>
+                        <p>Nama</p>
                         <input type="text" name="name" value={profile.name} onChange={handleChange} />
-                        <label>Email:</label>
+                        <p>Email</p>
                         <input type="email" name="email" value={profile.email} onChange={handleChange} />
-                        <label>Bio:</label>
+                        <p>Bio</p>
                         <input type="text" name="bio" value={profile.bio} onChange={handleChange} />
-                        <label>Role:</label>
-                        <input type="text" name="role" value={profile.role} onChange={handleChange} />
-                        <label>Password:</label>
-                        <input type="password" name="password" value={profile.password} onChange={handleChange} placeholder="Enter new password or leave empty" />
-                        <button type="submit">Save Changes</button>
+                        <p>Password</p>
+                        <input type="password" name="password" value={profile.password} onChange={handleChange} placeholder="Enter new password" />
+                        <button type="submit" className='btn-save'>Save Changes</button>
                     </form>
                 ) : (
                     <div className="profile-info">
-                        <p className="profile-label">Nama:</p>
-                        <p className="profile-value">{profile.name}</p>
-                        <p className="profile-label">Email:</p>
-                        <p className="profile-value">{profile.email}</p>
-                        <p className="profile-label">Role:</p>
-                        <p className="profile-value">{profile.role}</p>
-                        <p className="profile-label">Bio:</p>
-                        <p className="profile-value">{profile.bio}</p>
+                        <div className='profile-info-detail'>
+                            <p className="profile-label">Nama</p>
+                            <p className="profile-value">{profile.name}</p>
+                        </div>
+
+                        <div className='profile-info-detail'>
+                            <p className="profile-label">Email</p>
+                            <p className="profile-value">{profile.email}</p>
+                        </div>
+
+                        <div className='profile-info-detail'>
+                            <p className="profile-label">Role</p>
+                            <p className="profile-value">{profile.role}</p>
+                        </div>
+
+                        <div className='profile-info-detail'>
+                            <p className="profile-label">Bio</p>
+                            <p className="profile-value">{profile.bio}</p>
+                        </div>
                     </div>
                 )}
             </div>

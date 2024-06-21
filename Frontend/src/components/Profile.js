@@ -86,7 +86,7 @@ const Profile = () => {
         <div className="profile-container">
             <div className="top-card">
                 <h1>Profile</h1>
-                <button type="button" className="btn btn-edit-profile" onClick={handleEditToggle}>
+                <button type="button" className="btn-edit-profile" onClick={handleEditToggle}>
                     {isEditing ? 'Cancel' : 'Edit Profile'}
                 </button>
             </div>

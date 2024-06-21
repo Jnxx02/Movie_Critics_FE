@@ -33,6 +33,14 @@ const Home = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextFilm();
+    }, 8000); 
+
+    return () => clearInterval(interval);
+  }, [currentFilmIndex, carouselMovies]);
+
   const nextFilm = () => {
     setCurrentFilmIndex((prevIndex) => (prevIndex + 1) % carouselMovies.length);
   };
@@ -41,10 +49,14 @@ const Home = () => {
     setCurrentFilmIndex((prevIndex) => (prevIndex - 1 + carouselMovies.length) % carouselMovies.length);
   };
 
-  const currentFilm = carouselMovies[currentFilmIndex];
-
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
+
+  if (carouselMovies.length === 0) {
+    return <p>No movies available</p>; 
+  }
+
+  const currentFilm = carouselMovies[currentFilmIndex];
 
   return (
     <div className='full-container'>

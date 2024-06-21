@@ -22,6 +22,13 @@ const Film = () => {
     role: "",
   });
   const [userRating, setUserRating] = useState(null);
+  const [view, setView] = useState('comments'); // Default to comments initially
+
+  useEffect(() => {
+    if (user && user.role === 'critic') {
+      setView('reviews');
+    }
+  }, [user]); 
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -335,10 +342,7 @@ const Film = () => {
 
       <div className="garis"></div>
 
-      {user && (user.role === 'user' || user.role === 'admin') && (
-        <div className="comment-container">
-          <h2>Comments</h2>
-          {user.role === 'user' && (
+      {user.role === 'user' && (
             <div className="new-comment">
               <img src={'https://img.freepik.com/free-vector/illustration-businessman_53876-5856.jpg?size=626&ext=jpg&ga=GA1.1.2043474510.1718615911&semt=ais_user'} alt="User Profile" className="user-img" />
               <input
@@ -351,6 +355,30 @@ const Film = () => {
               <button onClick={handleCommentSubmit} className="comment-button">Submit</button>
             </div>
           )}
+
+      {user.role === 'critic' && (
+        <div className="new-review">
+          <img src={'https://img.freepik.com/free-vector/illustration-businessman_53876-5856.jpg?size=626&ext=jpg&ga=GA1.1.2043474510.1718615911&semt=ais_user'} alt="User Profile" className="user-img" />
+          <input
+            type="text"
+            value={newReview}
+            onChange={(e) => setNewReview(e.target.value)}
+            placeholder="Isi ulasan atau review"
+            className="review-input"
+          />
+          <button onClick={handleReviewSubmit} className="review-button">Submit</button>
+        </div>
+      )}
+
+      <div className="comment-type">
+        {(!user || (user && user.role !== 'critic')) && (
+          <button onClick={() => setView('comments')} className={`toggle-button ${view === 'comments' ? 'active' : ''}`}>Comments</button>
+        )}
+        <button onClick={() => setView('reviews')} className={`toggle-button ${view === 'reviews' ? 'active' : ''}`}>Reviews</button>
+      </div>
+
+      {view === 'comments' && user && (user.role === 'user' || user.role === 'admin') && (
+        <div className="comment-container">
           <div className="comments-list">
             {comments.map(comment => (
               <div key={comment.id} className="comment">
@@ -373,41 +401,32 @@ const Film = () => {
         </div>
       )}
 
-      {user && (user.role === 'critic' || user.role === 'admin' || user.role === 'user') && (
+      {view === 'reviews' && user && (user.role === 'critic' || user.role === 'admin' || user.role === 'user') && (
         <div className="review-container">
-          <h2>Reviews</h2>
-          {user.role === 'critic' && (
-            <div className="new-review">
-              <img src={'https://img.freepik.com/free-vector/illustration-businessman_53876-5856.jpg?size=626&ext=jpg&ga=GA1.1.2043474510.1718615911&semt=ais_user'} alt="User Profile" className="user-img" />
-              <input
-                type="text"
-                value={newReview}
-                onChange={(e) => setNewReview(e.target.value)}
-                placeholder="Isi ulasan atau review"
-                className="review-input"
-              />
-              <button onClick={handleReviewSubmit} className="review-button">Submit</button>
-            </div>
-          )}
           <div className="reviews-list">
             {reviews.map(review => (
-              <div key={review.id} className="review">
-                <div className="review-header">
-                  <img src={'https://img.freepik.com/free-vector/illustration-businessman_53876-5856.jpg?size=626&ext=jpg&ga=GA1.1.2043474510.1718615911&semt=ais_user'} alt="User Profile" className="user-img" />
-                  <div className="review-info">
-                    <p className="review-author">{review.name}</p>
-                    <p className="review-text">{review.content}</p>
-                  </div>
-                  {user && (user.id === review.author_id || user.role === 'admin') && (
-                    <div className="review-actions">
-                      {user.role !== 'admin' && <button onClick={() => handleEditReview(review)} className="edit-button">Edit</button>}
-                      <button onClick={() => handleDeleteReview(review.id)} className="delete-button">Delete</button>
+                <div key={review.id} className="review">
+                    <div className="review-header">
+                        <img src={'https://img.freepik.com/free-vector/illustration-businessman_53876-5856.jpg?size=626&ext=jpg&ga=GA1.1.2043474510.1718615911&semt=ais_user'} alt="User Profile" className="user-img" />
+                        <div className="review-info">
+                            <p className="review-author">{review.name}</p>
+                            <p className="review-text">{review.content}</p>
+                        </div>
+                        {user.role === 'critic' && (
+                          <div className="review-actions">
+                            {user.id === review.author_id && <button onClick={() => handleEditReview(review)} className="edit-button">Edit</button>}
+                            <button onClick={() => handleDeleteReview(review.id)} className="delete-button">Delete</button>
+                          </div>
+                        )}
+                        {user.role === 'admin' && (
+                          <div className="review-actions">
+                            <button onClick={() => handleDeleteReview(review.id)} className="delete-button">Delete</button>
+                          </div>
+                        )}
                     </div>
-                  )}
                 </div>
-              </div>
             ))}
-          </div>
+        </div>
         </div>
       )}
 

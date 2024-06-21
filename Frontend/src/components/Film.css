@@ -74,14 +74,11 @@
     margin-bottom: 30px;
 }
 
-.comment-container {
-    margin-top: 30px;
-}
-
 .new-comment {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    margin-top: 10px;
 }
 
 .user-img {
@@ -292,6 +289,7 @@
 
 .rating-container {
     margin-top: 20px;
+    text-align: center;
 }
 
 .rating-stars {
@@ -326,7 +324,7 @@
 }
 
 .review-container {
-    margin-top: 30px;
+    /* margin-top: 30px; */
 }
 
 .new-review {
@@ -443,6 +441,6 @@
     display: flex;
     flex-direction: column;
     background-color: #F2F2F2;
-    border-radius: 0px 20px 20px 20px;
+    border-radius: 0px 10px 10px 10px;
     padding: 30px;
 }
